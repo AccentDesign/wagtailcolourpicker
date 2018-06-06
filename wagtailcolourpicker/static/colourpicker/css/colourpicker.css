@@ -1,0 +1,22 @@
+ form #id_colour li {
+     display: inline-block;
+     margin-right: 10px;
+     margin-bottom: 5px;
+ }
+ form #id_colour li label {
+     border: 1px solid rgba(0, 0, 0, .26);
+     border-radius: 1px;
+     cursor: pointer;
+     width: 60px;
+     height: 60px;
+ }
+ form #id_colour li input {
+     display: none;
+ }
+ form #id_colour li input:checked+label {
+     box-shadow: 0px 0px 4px 2px rgba(0,0,0,0.40);
+ }
+
+ .Draftail-ToolbarButton[name^="COLOUR_"] {
+     display: none;
+ }

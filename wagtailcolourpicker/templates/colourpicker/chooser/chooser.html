@@ -1,0 +1,21 @@
+{% load wagtailimages_tags %}
+{% load i18n %}
+{% trans "Choose colour" as title_str %}
+{% trans "Submit an empty form to remove the selected text colour" as subtitle_str %}
+{% include "wagtailadmin/shared/header.html" with title=title_str subtitle=subtitle_str merged=1 %}
+
+<div class="tab-content">
+    <section id="form" class="active nice-padding">
+        <form class="colour-form" action="{% url 'wagtailcolourpicker:chooser' %}" method="POST" novalidate>
+            {% csrf_token %}
+            <ul class="fields">
+                {% for field in form %}
+                    {% include "wagtailadmin/shared/field_as_li.html" with field=field %}
+                {% endfor %}
+                <li>
+                    <button type="submit" class="button  button-longrunning"><span class="icon icon-spinner"></span><em>{% trans 'Select' %}</em></button>
+                </li>
+            </ul>
+        </form>
+    </section>
+</div>

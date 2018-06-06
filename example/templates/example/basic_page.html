@@ -1,0 +1,30 @@
+{% load i18n static wagtailcore_tags wagtailuserbar %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% firstof page.seo_title page.title %}</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Wagtail ColourPicker</h1>
+        </div>
+    </header>
+    <div class="container">
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+        {% for block in page.body %}
+            {% include_block block %}
+        {% endfor %}
+    </div>
+    {% wagtailuserbar %}
+</body>
+</html>

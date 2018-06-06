@@ -1,0 +1,11 @@
+.cache
+.coverage
+.DS_Store
+.idea
+.python-version
+.tox
+dist
+htmlcov
+images
+node_modules
+wagtailcolourpicker.egg-info
