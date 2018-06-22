@@ -1,13 +1,20 @@
-from django.db.utils import ProgrammingError
 from django.conf import settings
-from django.urls import reverse
+from django.urls import reverse, path, include
 from django.utils.html import format_html_join, format_html
 
 import wagtail.admin.rich_text.editors.draftail.features as draftail_features
 from wagtail.core import hooks
 
 from wagtailcolourpicker.conf import get_setting
-from wagtailcolourpicker.models import Colour
+from wagtailcolourpicker.utils.colour import register_all_colour_features
+
+
+@hooks.register('register_admin_urls')
+def register_admin_urls():
+    from wagtailcolourpicker import urls
+    return [
+        path('wagtailcolourpicker/', include((urls, 'wagtailcolourpicker'))),
+    ]
 
 
 @hooks.register('insert_editor_css')
@@ -45,12 +52,9 @@ def insert_editor_js():
 @hooks.register('register_rich_text_features')
 def register_textcolour_feature(features):
     # register all colour features
-    try:
-        for colour in Colour.objects.all():
-            colour.register_inline_style(features)
-    except ProgrammingError:
-        pass
+    register_all_colour_features(features)
 
+    # register the color picker
     feature_name = 'textcolour'
     type_ = feature_name.upper()
 

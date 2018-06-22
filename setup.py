@@ -8,6 +8,7 @@ from wagtailcolourpicker import __version__
 
 
 install_requires = [
+    'cssutils>=1.0.2',
     'Django>=2,<2.1',
     'wagtail>=2,<2.2'
 ]

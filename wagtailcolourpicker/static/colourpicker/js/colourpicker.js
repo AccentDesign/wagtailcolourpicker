@@ -9,7 +9,6 @@ class TextColourSource extends React.Component {
         super(props);
 
         this.onChosen = this.onChosen.bind(this);
-        this.onAdded = this.onAdded.bind(this);
         this.onClose = this.onClose.bind(this);
     }
 
@@ -71,24 +70,6 @@ class TextColourSource extends React.Component {
         this.workflow.close();
 
         onComplete(nextEditorState);
-    }
-
-    onAdded(featureName, color, created) {
-        // if a new color was added add the new inline style so that
-        // the colour changes are visible immediately
-
-        if (created) {
-            document.querySelectorAll('[data-draftail-input]').forEach(function (input) {
-                input.draftailEditor.props.inlineStyles.push(
-                    {
-                        type: featureName,
-                        label: 'C',
-                        description: color,
-                        style: {color: color}
-                    }
-                )
-            });
-        }
     }
 
     onClose(e) {

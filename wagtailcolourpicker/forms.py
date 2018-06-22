@@ -1,7 +1,7 @@
 from django import forms
 from django.utils.translation import ugettext_lazy as _
 
-from wagtailcolourpicker.models import Colour
+from wagtailcolourpicker.conf import get_setting
 
 
 class ColourRadioSelect(forms.widgets.RadioSelect):
@@ -9,14 +9,9 @@ class ColourRadioSelect(forms.widgets.RadioSelect):
 
 
 class ColourForm(forms.Form):
-    colour = forms.ModelChoiceField(
+    colour = forms.ChoiceField(
         label=_("Colours"),
-        queryset=Colour.objects.all(),
+        choices=get_setting('COLOURS'),
         widget=ColourRadioSelect,
-        required=False,
-        empty_label=None
-    )
-    new = forms.CharField(
-        label=_("New"),
         required=False
     )
