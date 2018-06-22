@@ -8,8 +8,6 @@ from wagtailcolourpicker import __version__
 
 
 install_requires = [
-    'cssutils>=1.0.2',
-    'Django>=2,<2.1',
     'wagtail>=2,<2.2'
 ]
 
@@ -45,7 +43,7 @@ setup(
     include_package_data=True,
     keywords=['wagtail', 'draftjs', 'colour', 'picker', 'accent', 'design'],
     classifiers=[
-        'Development Status :: 5 - Production/Stable',
+        'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
@@ -55,6 +53,8 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Framework :: Django',
         'Framework :: Django :: 2.0',
+        'Framework :: Wagtail',
+        'Framework :: Wagtail :: 2',
         'Topic :: Internet :: WWW/HTTP :: Site Management',
     ],
 )

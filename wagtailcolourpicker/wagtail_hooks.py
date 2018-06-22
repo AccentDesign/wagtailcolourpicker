@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.urls import reverse, path, include
 from django.utils.html import format_html_join, format_html
+from django.utils.translation import ugettext as _
 
 import wagtail.admin.rich_text.editors.draftail.features as draftail_features
 from wagtail.core import hooks
@@ -61,7 +62,7 @@ def register_textcolour_feature(features):
     control = {
         'type': type_,
         'icon': get_setting('ICON'),
-        'description': 'Text Colour',
+        'description': _('Text Colour'),
     }
 
     features.register_editor_plugin(

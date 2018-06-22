@@ -1,4 +1,4 @@
 function(modal) {
-    modal.respond('colourChosen', '{{ feature }}', ['{{ all_features|join:"','" }}']);
+    modal.respond('colourChosen', '{{ feature_name }}', ['{{ all_feature_names|join:"','" }}']);
     modal.close();
 }
