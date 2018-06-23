@@ -1,2 +1,2 @@
 include LICENSE
-recursive-include wagtailcolourpicker *.py *.html *.js
+recursive-include wagtailcolourpicker *.py *.html *.js *.css
