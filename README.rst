@@ -1,5 +1,5 @@
-Wagtail ColourPicker
-====================
+Wagtail Colour Picker
+=====================
 
 A colour picker for Wagtail's DraftJS editor.
 
@@ -39,17 +39,17 @@ Settings
 Documentation
 -------------
 
-TODO
+Can be found on `readthedocs <http://wagtailcolourpicker.readthedocs.io/>`_.
 
 Screenshots
 -----------
 
-.. figure:: screen_1.png
+.. figure::  http://wagtailcolourpicker.readthedocs.io/en/latest/_images/screen_1.png
    :width: 728 px
 
 Picker
 
-.. figure:: screen_2.png
+.. figure:: http://wagtailcolourpicker.readthedocs.io/en/latest/_images/screen_2.png
    :width: 728 px
 
 Selected Text

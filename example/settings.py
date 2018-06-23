@@ -8,7 +8,7 @@ SITE_DIR = dirname(abspath(__file__))
 
 # Security
 
-SECRET_KEY = environ.get('SECRET_KEY', '')
+SECRET_KEY = environ.get('SECRET_KEY', 'some secret key')
 
 DEBUG = True
 
