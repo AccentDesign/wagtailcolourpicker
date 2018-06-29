@@ -1,4 +1,5 @@
 from django.conf import settings
+from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.urls import reverse, path, include
 from django.utils.html import format_html_join, format_html
 from django.utils.translation import ugettext as _
@@ -25,8 +26,8 @@ def editor_css():
     ]
     css_includes = format_html_join(
         '\n',
-        '<link rel="stylesheet" href="{0}{1}">',
-        ((settings.STATIC_URL, filename) for filename in css_files)
+        '<link rel="stylesheet" href="{0}">',
+        ((static(filename), ) for filename in css_files)
     )
     return css_includes
 
@@ -40,8 +41,8 @@ def insert_editor_js():
     ]
     js_includes = format_html_join(
         '\n',
-        '<script src="{0}{1}"></script>',
-        ((settings.STATIC_URL, filename) for filename in js_files)
+        '<script src="{0}"></script>',
+        ((static(filename), ) for filename in js_files)
     )
     js_includes += format_html(
         "<script>window.chooserUrls.colourChooser = '{0}';</script>",
