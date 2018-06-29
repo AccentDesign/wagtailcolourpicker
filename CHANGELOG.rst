@@ -2,6 +2,11 @@
 Changelog
 *********
 
+0.0.4
+-----
+
+* Use static template tag for when using external storage
+
 0.0.3
 -----
 
