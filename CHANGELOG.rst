@@ -2,6 +2,12 @@
 Changelog
 *********
 
+0.0.6
+-----
+
+* Update to wagtail 2.4
+* Fix issue with modal submission
+
 0.0.5
 -----
 
