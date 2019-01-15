@@ -67,7 +67,12 @@ def register_textcolour_feature(features):
     }
 
     features.register_editor_plugin(
-        'draftail', feature_name, draftail_features.EntityFeature(control)
+        'draftail',
+        feature_name,
+        draftail_features.EntityFeature(
+            control,
+            js=['colourpicker/js/chooser.js']
+        )
     )
 
     features.default_features.append(feature_name)

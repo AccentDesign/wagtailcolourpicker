@@ -14,17 +14,21 @@ def chooser(request):
             if form.cleaned_data.get('colour'):
                 feature_name = get_feature_name_upper(form.cleaned_data.get('colour'))
 
+            all_features = get_feature_name_list()
+
             return render_modal_workflow(
-                request, None, 'colourpicker/chooser/chosen.js',
-                {
-                    'feature_name': feature_name,
-                    'all_feature_names': get_feature_name_list()
+                request, None, None, None,
+                json_data={
+                    'step': 'colour_chosen',
+                    'toggled_feature': feature_name,
+                    'all_features': all_features
                 }
             )
     else:
         form = ColourForm()
 
     return render_modal_workflow(
-        request, 'colourpicker/chooser/chooser.html', 'colourpicker/chooser/chooser.js',
-        {'form': form}
+        request, 'colourpicker/chooser/chooser.html', None,
+        {'form': form},
+        json_data={'step': 'chooser'}
     )

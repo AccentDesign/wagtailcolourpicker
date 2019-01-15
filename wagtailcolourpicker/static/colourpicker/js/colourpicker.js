@@ -13,14 +13,13 @@ class TextColourSource extends React.Component {
     }
 
     componentDidMount() {
-
         $(document.body).on('hidden.bs.modal', this.onClose);
 
         this.workflow = ModalWorkflow({
             url: window.chooserUrls.colourChooser,
+            onload: COLOURPICKER_CHOOSER_MODAL_ONLOAD_HANDLERS,
             responses: {
-                colourChosen: this.onChosen,
-                colourAdded: this.onAdded
+                colourChosen: this.onChosen
             }
         });
     }
@@ -34,7 +33,6 @@ class TextColourSource extends React.Component {
 
     onChosen(toggledColor, featuredColors) {
         // set the chosen colour, ensuring all other colours are unset
-
         const { editorState, onComplete } = this.props;
         const selection = editorState.getSelection();
 
